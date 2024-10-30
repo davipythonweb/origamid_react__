@@ -1,5 +1,6 @@
 import React from 'react'
 import viteLogo from '/vite.svg'
+import Produto from './Produto'
 
 
 // Dica do Professor:
@@ -9,17 +10,16 @@ import viteLogo from '/vite.svg'
 
 
 const App = () => {
-  const [contar, setContar] = React.useState(0)
-  const [dados, setDados] = React.useState(null)
+  const [ativo, setAtivo] = React.useState(false)
  
-  React.useEffect( () => {
-    fetch('https://ranekapi.origamid.dev/json/api/produto/notebook')
-    .then(Response => Response.json())
-    .then(json => setDados(json))
-   
-  }, [])
 
-  return <button className='btn btn-primary ' onClick={() => setContar(contar + 1)}>{contar}</button>
+  return (
+    <div>
+      {ativo && <Produto />}
+      <button className='btn btn-info ' onClick={() => setAtivo(!ativo)}>Ativar</button>
+    </div>
+
+)
 }
 
  

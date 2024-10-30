@@ -39,3 +39,58 @@ const App = () => {
 
 
 // exemplo da api = https://ranekapi.origamid.dev/json/api/produto/
+
+const App2 = () => {
+    const [contar, setContar] = React.useState(0)
+    const [dados, setDados] = React.useState(null)
+   
+    React.useEffect( () => {
+      fetch('https://ranekapi.origamid.dev/json/api/produto/notebook')
+      .then((response) => response.json())
+      .then((json) => setDados(json))
+    }, [])
+  
+    return (
+      <div>
+  
+        {dados && (
+          <div>
+            <h1>{dados.nome}</h1>
+            <p>R$ {dados.preco * contar}</p>
+          </div>
+        )}
+        <button className='btn btn-primary ' onClick={() => setContar(contar + 1)}>{contar}</button>
+      </div>
+  
+  )
+  }
+
+
+// DICA: PODEMOS ter diversos useEffect no nosso codigo.
+// O ideal eh separarmos efeitos diferentes em useEffect diferentes.
+
+
+// DICA==> Antes de Desmontar
+
+// As vezes precisamos executar um efeito sempre que um
+// componente for desmontado. Para isso utilizamos um callback no
+// retorno do callback do efeito.
+
+const Produto2 = () => {
+
+    React.useEffect( () => {
+        // utilizamod o useEffect para adicionarmos eventos direto ao
+        function handleScrol(event) {
+            console.info(event)
+        }
+        window.addEventListener('scroll', handleScrol)
+        // Limpa o evento quando o elemento eh removido do DOM 
+        return () => {
+            window.removeEventListener('scroll', handleScrol)
+        }
+    }, [])
+}
+
+
+
+
