@@ -18,3 +18,7 @@ const App = () => {
 
     return <button onClick={() => setContar(contar + 1)}>{contar}</button>
 }
+
+// O useEffect sera especialmente utilizado quando precisamos
+//  definir um efeito que deve ocorrer uma vez apenas, como o fetch de dados no servidor por exemplo.
+
