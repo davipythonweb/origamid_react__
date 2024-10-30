@@ -2,7 +2,7 @@
 
 * Curso de react da origamid
 
-### aulas_complestas_react
+### aulas
 
 
 #### estrutura Minima para projeto com Vite + React
