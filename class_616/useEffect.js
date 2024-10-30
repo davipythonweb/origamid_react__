@@ -1,5 +1,15 @@
 // Aula 616 - useEffect
 
+
+// ESTADO => O estado de uma aplicacao representa as caracteristicas dela
+//  naquele momento. Por exemplo: Os dados do usuario foram carregados,
+// o botao esta ativo, o usuario esta na pagina de contato e etc.
+
+// Hooks ==> São funcoes especiais do React que permitem
+// controlarmos o estado e o ciclo de vida de componentes
+// funcionais.
+
+
 // Todo componente possui um ciclo de vida. Os principais momentos
 // acontecem quando o componente eh renderizado, atualizado ou
 // destruido.
