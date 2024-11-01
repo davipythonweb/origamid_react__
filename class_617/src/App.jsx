@@ -1,10 +1,21 @@
 import React from 'react'
 import viteLogo from '/vite.svg'
+import Produto from './Produto'
 
 
 const App = () => {
   
 const [produto, setProduto] = React.useState(null)
+
+React.useEffect(() => {
+  const produtoLocal = window.localStorage.getItem('produto')
+  if (produtoLocal !== null) setProduto(produtoLocal)
+  
+}, [])
+
+React.useEffect(() => {
+  if (produto !== null) window.localStorage.setItem('produto', produto)
+}, [produto])
 
 function handleClick( { target }) {
   setProduto(target.innerText)
@@ -14,8 +25,9 @@ function handleClick( { target }) {
 
     <div>
       <h1>Preferência: {produto}</h1>
-      <button onClick={handleClick} style={{marginRight: '1rem'}}>notebook</button>
-      <button onClick={handleClick}>smartphone</button>
+      <button onClick={handleClick} style={{marginRight: '1rem'}} className='btn btn-outline-danger'>notebook</button>
+      <button onClick={handleClick} className='btn btn-outline-danger'>smartphone</button>
+      <Produto produto={produto} />
     </div>
   )
 }
