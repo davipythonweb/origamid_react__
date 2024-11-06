@@ -1,11 +1,15 @@
 import React from 'react'
 import viteLogo from '/vite.svg'
+import Produto  from './Produto'
+import { GlobalStorage } from './GlobalContext'
 
 
-function App() {
-
-  return <div></div>
-    
+const App = () => {
+  return (
+    <GlobalStorage>
+      <Produto />
+    </GlobalStorage>
+  )
 }
 
 export default App

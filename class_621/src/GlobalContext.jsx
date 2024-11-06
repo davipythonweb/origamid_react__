@@ -1,0 +1,21 @@
+import React from 'react'
+
+
+export const GlobalContext = React.createContext()
+
+export const GlobalStorage = ({children}) => {
+    const [dados, setDados] = React.useState(null)
+    
+    React.useState(() => {
+        fetch('https://ranekapi.origamid.dev/json/api/produto/')
+        .then((response) => response.json())
+        .then((json) => setDados(json))
+    }, [])
+    
+    return(
+        
+        <GlobalContext.Provider value={{ }}> 
+            {children} 
+        </GlobalContext.Provider>
+    ) 
+}
